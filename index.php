@@ -4,6 +4,7 @@
 	require_once "services/sinoptic.php";
 	require_once "services/yandex.php";
 	require_once "engine/get_weather.php";
+	require_once "engine/mySqlInsert.php";
 ?>
 <html>
 	<head>
