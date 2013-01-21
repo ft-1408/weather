@@ -12,8 +12,8 @@
 	</head>	
 	<body>
 		<h1>Погода в Коростене на разных сайтах</h1>
-		<div><?="Sinoptic ".getWeather($pathSinoptic,$regSinoptik,$regSinoptikW)?></div>
-		<div><?="Yandex ".getWeather($pathYa,$regYa,$regYaW).""?></div>
+		<div><?="Sinoptic: ".getWeather($pathSinoptic,$regSinoptik,$regSinoptikW)?></div>
+		<div><?="Yandex: ".getWeather($pathYa,$regYa,$regYaW).""?></div>
 	</body>	
 </html>
 	
