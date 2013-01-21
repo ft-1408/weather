@@ -1,6 +1,6 @@
 	<?php
 		function getWeather($path,$reg,$regW){
-			
+
 			$content=file_get_contents($path);
 
 			preg_match($reg,$content,$matches);
@@ -9,6 +9,14 @@
 			preg_match($regW, $content, $matches);
 			$w=$matches[1];
 
+
+			mysql_connect("localhost","root","toor") OR DIE("Не могу создать соединение ");
+			mysql_select_db("weather") or die(mysql_error());
+			$query = "INSERT INTO weather_bouth (temp,weather,time)
+			VALUES('$temp','$w', 'mktime()')"; 
+			mysql_query($query) or die(mysql_error()); 
+
 			$res=$temp." ".$w;
 			return ($res)? $res : "Error!";	
 	}
+
