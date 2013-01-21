@@ -1,6 +1,10 @@
 <?php 
 	header('Content-Type: text/html; charset=utf-8');
 
+	require_once "services/sinoptic.php";
+	require_once "services/yandex.php";
+
+
 	function getWeather($path,$reg,$regW){
 		$content=file_get_contents($path);
 		preg_match($reg,$content,$matches);
@@ -11,9 +15,7 @@
 		return ($res)? $res : "Error!";	
 	}
 
-	$pathSinoptic="http://sinoptik.ua/%D0%BF%D0%BE%D0%B3%D0%BE%D0%B4%D0%B0-%D0%BA%D0%BE%D1%80%D0%BE%D1%81%D1%82%D0%B5%D0%BD%D1%8C";
-	$regSinoptik="/<p class=\"today-temp[^>]*?\">(.?\d[^<]*)/";
-	$regSinoptikW="/<img width=\"188\" height=\"150\" src=\"[^\"]*..[^\"]*.([^\"]*)/";
+	
 
 	$pathYa="http://pogoda.yandex.ua/korosten/";
 	$regYa="/<div class=\"b-thermometer__now\">(\D{3}\d[^<]*)/";
