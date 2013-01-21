@@ -3,11 +3,10 @@
 
 	function getWeather($path,$reg,$regW){
 		$content=file_get_contents($path);
-		preg_match($reg, $content, $matches);
+		preg_match($reg,$content,$matches);
 		$temp=$matches[1];
 		preg_match($regW, $content, $matches);
 		$w=$matches[1];
-
 		$res=$temp." ".$w;
 		return ($res)? $res : "Error!";	
 	}
@@ -16,13 +15,11 @@
 	$regSinoptik="/<p class=\"today-temp[^>]*?\">(.?\d[^<]*)/";
 	$regSinoptikW="/<img width=\"188\" height=\"150\" src=\"[^\"]*..[^\"]*.([^\"]*)/";
 
-	$pathYa="http://pogoda.yandex.ua/korosten/?ncrnd=1512";
-	$regYa="/<div class=\"[a-z]?-thermometer__now\">(\D?\d[^<]*)/";
+	$pathYa="http://pogoda.yandex.ua/korosten/";
+	$regYa="/<div class=\"b-thermometer__now\">(\D{3}\d[^<]*)/";
 	$regYaW="/<div class=\"b-info-item b-info-item_type_fact-big\">([^<]*)/";
 	
 	echo "Погоды в Коростене на разных сайтах <br><br><br>";
 	echo "Sinoptic ".getWeather($pathSinoptic,$regSinoptik,$regSinoptikW)."<br><br>";
-	echo "Yandex ".getWeather($pathYa,$regYa,$regYaW);
-
-	$c=file_get_contents('http://vk.com/promer1');
-	file_put_contents(bbb, $c);
+	echo "Yandex ".getWeather($pathYa,$regYa,$regYaW)."<br><br>";
+	
