@@ -8,9 +8,10 @@
 <html>
 	<head>
 		<title>test</title>
+		<link rel="stylesheet" type="text/css" href="styles/style.css">
 	</head>	
 	<body>
-		<h1>Погоды в Коростене на разных сайтах</h1>
+		<h1>Погода в Коростене на разных сайтах</h1>
 		<div><?="Sinoptic ".getWeather($pathSinoptic,$regSinoptik,$regSinoptikW)?></div>
 		<div><?="Yandex ".getWeather($pathYa,$regYa,$regYaW).""?></div>
 	</body>	
