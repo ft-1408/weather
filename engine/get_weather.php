@@ -9,11 +9,13 @@
 			preg_match($regW, $content, $matches);
 			$w=$matches[1];
 
+			$cuurTime=date('Y-m-d H:s:y');
 
 			mysql_connect("localhost","root","toor") OR DIE("Не могу создать соединение ");
 			mysql_select_db("weather") or die(mysql_error());
 			$query = "INSERT INTO weather_bouth (temp,weather,time)
-			VALUES('$temp','$w', 'mktime()')"; 
+			VALUES('$temp','$w', '$cuurTime')"; 
+
 			mysql_query($query) or die(mysql_error()); 
 
 			$res=$temp." ".$w;
